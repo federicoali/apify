@@ -11,7 +11,7 @@ Apify.main(async () => {
     // Validate the input
     if (!input) throw new Error('Missing configuration');
 
-    const { inputUrl = null, url = null, maxPostCount, extendOutputFunction = null } = input;
+    const { inputUrl = null, maxPostCount, extendOutputFunction = null } = input;
 
 
     // Prepare the initial list of google shopping queries and request queue
@@ -29,7 +29,7 @@ Apify.main(async () => {
 
     // crawler config
     const crawler = new Apify.PuppeteerCrawler({
-        url,
+        request: inputUrl,
         useSessionPool: true,
         persistCookiesPerSession: true,
         maxRequestRetries: 15,
