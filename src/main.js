@@ -13,12 +13,13 @@ Apify.main(async () => {
 
     const { inputUrl = null, maxPostCount, extendOutputFunction = null } = input;
 
-    const requestList = Apify.openRequestList('url', inputUrl);
+    const requestList = Apify.openRequestList('url', input);
 
     const requestQueue = await Apify.openRequestQueue();
 
     // Prepare the initial list of google shopping queries and request queue
     console.log(inputUrl);
+    console.log(requestList);
 
     // if exists, evaluate extendOutputFunction
     let evaledFunc;
