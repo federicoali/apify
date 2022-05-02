@@ -11,9 +11,9 @@ Apify.main(async () => {
     // Validate the input
     if (!input) throw new Error('Missing configuration');
 
-    const { inputUrl, maxPostCount, extendOutputFunction } = input;
+    const inputUrl = input;
 
-    console.log(inputUrl);
+    console.log(inputUrl, input);
 
     new Apify.Request(input);
 
@@ -25,9 +25,7 @@ Apify.main(async () => {
     console.log(inputUrl);
     console.log(requestList);
 
-    // if exists, evaluate extendOutputFunction
-    let evaledFunc;
-    if (extendOutputFunction) evaledFunc = checkAndEval(extendOutputFunction);
+
 
     const proxyConfiguration = await Apify.createProxyConfiguration({
         groups: ['GOOGLE_SERP'],
