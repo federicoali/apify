@@ -11,7 +11,7 @@ Apify.main(async () => {
     // Validate the input
     if (!input) throw new Error('Missing configuration');
 
-    const { inputUrl = null, maxPostCount, extendOutputFunction = null } = input;
+    const { inputUrl, maxPostCount, extendOutputFunction } = input;
 
     new Apify.Request(inputUrl);
 
