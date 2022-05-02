@@ -15,7 +15,7 @@ Apify.main(async () => {
 
 
     // Prepare the initial list of google shopping queries and request queue
-    console.log(inputUrl);
+    console.log(input);
 
 
 
