@@ -13,9 +13,9 @@ Apify.main(async () => {
 
     const { inputUrl, maxPostCount, extendOutputFunction } = input;
 
-    new Apify.Request(inputUrl);
+    new Apify.Request(input);
 
-    const requestList = Apify.openRequestList('url', inputUrl);
+    const requestList = Apify.openRequestList('url', input);
 
     const requestQueue = await Apify.openRequestQueue();
 
@@ -43,14 +43,14 @@ Apify.main(async () => {
         maxConcurrency: 10,
         proxyConfiguration,
         handlePageFunction: async ({ page, request }) => {
-            log.info(`Processing: ${request.url}`);
+            log.info(`Processing: ${request.inputUrl}`);
             log.info(`Number of page: ${request.userData.pageNumber}`);
             const { label, query } = request.userData;
             return routes[label](page, request, query, requestQueue, maxPostCount, evaledFunc);
         },
 
         handleFailedRequestFunction: async ({ request }) => {
-            log.warning(`Request ${request.url} failed too many times`);
+            log.warning(`Request ${request.inputUrl} failed too many times`);
 
             await Apify.pushData({
                 '#debug': Apify.utils.createRequestDebugInfo(request),
