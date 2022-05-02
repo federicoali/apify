@@ -11,12 +11,12 @@ Apify.main(async () => {
     // Validate the input
     if (!input) throw new Error('Missing configuration');
 
-    const { inputUrl = null, maxPostCount, extendOutputFunction = null } = input;
+    const { inputUrl = null, url = null, maxPostCount, extendOutputFunction = null } = input;
 
 
     // Prepare the initial list of google shopping queries and request queue
     console.log(inputUrl);
-
+    console.log(url);
 
 
     // if exists, evaluate extendOutputFunction
