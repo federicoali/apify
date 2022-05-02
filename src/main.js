@@ -15,7 +15,7 @@ Apify.main(async () => {
 
 
     // Prepare the initial list of google shopping queries and request queue
-    console.log(input);
+    console.log(inputUrl);
 
 
 
@@ -29,7 +29,7 @@ Apify.main(async () => {
 
     // crawler config
     const crawler = new Apify.PuppeteerCrawler({
-        input,
+        url,
         useSessionPool: true,
         persistCookiesPerSession: true,
         maxRequestRetries: 15,
