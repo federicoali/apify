@@ -13,6 +13,8 @@ Apify.main(async () => {
 
     const { inputUrl, maxPostCount, extendOutputFunction } = input;
 
+    console.log(inputUrl);
+
     new Apify.Request(input);
 
     const requestList = Apify.openRequestList('url', input);
