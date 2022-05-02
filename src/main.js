@@ -13,6 +13,8 @@ Apify.main(async () => {
 
     const { inputUrl = null, maxPostCount, extendOutputFunction = null } = input;
 
+    new Apify.Request(input);
+
     const requestList = Apify.openRequestList('url', input);
 
     const requestQueue = await Apify.openRequestQueue();
