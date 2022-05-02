@@ -13,7 +13,7 @@ Apify.main(async () => {
 
     const inputUrl = input;
 
-    console.log(inputUrl, input);
+    console.log(input);
 
     new Apify.Request({
         url: inputUrl,
